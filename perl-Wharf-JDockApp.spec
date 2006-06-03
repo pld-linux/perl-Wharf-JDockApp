@@ -6,6 +6,7 @@
 %define		pdir	Wharf
 %define		pnam	JDockApp
 Summary:	Wharf::JDockApp - Perl extension for doing Wharf or Window Maker dockapps
+Summary(pl):	Wharf::JDockApp - rozszerzenie Perla do tworzenia aplikacji dokowalnych
 Name:		perl-Wharf-JDockApp
 Version:	1.2.1
 Release:	1
@@ -23,6 +24,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Wharf::JDockApp - Perl extension for doing Wharf or Window Maker
 dockapps.
+
+%description -l pl
+Wharf::JDockApp - rozszerzenie Perla do tworzenia aplikacji
+dokowalnych (dockapp) Wharfa lub Window Makera.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -45,8 +50,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{perl_vendorarch}/%{pdir}/*.pm
-%dir %{perl_vendorarch}/%{pdir}/%{pnam}/
-%{perl_vendorarch}/%{pdir}/%{pnam}/*.pm
-%{perl_vendorarch}/auto/%{pdir}/%{pnam}/*
+%dir %{perl_vendorarch}/Wharf
+%{perl_vendorarch}/Wharf/*.pm
+%dir %{perl_vendorarch}/Wharf/JDockApp
+%{perl_vendorarch}/Wharf/JDockApp/*.pm
+%dir %{perl_vendorarch}/auto/Wharf
+%dir %{perl_vendorarch}/auto/Wharf/JDockApp
+%{perl_vendorarch}/auto/Wharf/JDockApp/*
 %{_mandir}/man3/*
